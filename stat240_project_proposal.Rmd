@@ -1,0 +1,54 @@
+---
+title: "Stat Final Project Proposal, Group 316:1"
+output: html_document
+date: "2024-07-14"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+## Group Member Names 
+Brooke Hrdlicka, 
+Nicole Andrews, 
+Lucky Hu, 
+Ahmad Hinnawi
+
+## Brief Description of Communication
+A brief description of how the group will communicate and work together.
+- When during the week can the group meet? Consider needs of all group members.
+- What platforms will the group use to communicate and share documents
+
+Our group will maintain regular communication primarily through text messages, ensuring quick updates, queries, and general discussions are easily accessible. This platform will facilitate ongoing dialogue and immediate responses among all members. Additionally, we will convene weekly via Zoom to conduct comprehensive progress meetings. These sessions will serve as opportunities to review our project's development, address any challenges, and strategize next steps collaboratively. For sharing and collaborating on documents, we will utilize Google Drive, Text Message and email. We will also share files through a shared folder via text message. 
+
+## Question 
+The question or questions of interest that motivate the planned study.
+- The topic selected must be unanimous among group members.
+- Each question should be in the form of a research question which may be supported or refuted by the data analysis and typically proposes or predicts a relationship between some variables in the study.
+- Note that your project should aim to answer a limited number of questions (preferably one) using data from one or more source.
+- Do not try to answer too many questions. Better projects will have a focused set of one or two questions.
+
+## Data Source 
+
+## Data Description 
+A description of the data. Include in this description answers to these questions:
+- Who collected the data?
+- How were the data collected?
+- What are key variables in the data set, what do they measure, and how are they related to your key questions?
+- If the data may be thought of as a sample from some larger population, what is that larger population?
+
+Note: if you get the data from a data repository such as Kaggle, you will need to dig into supplementary information to answer these questions.
+It is insufficient to simply report a link to a Kaggle repository.
+
+## Graph Description
+- Include a description of a graph which will show how the data informs the primary question of interest.
+- Describe what variables you will include and what type of graph you will create.
+
+## Model Description
+Include a description of a possible model for the data and associated methods of inference or prediction.
+- We understand that you may not have a good grasp of these methods yet.
+- We understand the choice of methods may change between the proposal and the final project.
+```{r }
+
+```
+
+
