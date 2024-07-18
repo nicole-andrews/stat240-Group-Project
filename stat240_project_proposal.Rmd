@@ -27,7 +27,12 @@ The question or questions of interest that motivate the planned study.
 - Note that your project should aim to answer a limited number of questions (preferably one) using data from one or more source.
 - Do not try to answer too many questions. Better projects will have a focused set of one or two questions.
 
+The effect of different weather conditions on the car accident rate. We believe that weather conditions such as rain, snow, and fog may increase the likelihood of car accidents. We aim to investigate the relationship between weather conditions and car accidents and determine if certain weather conditions are associated with higher accident rates.
+
+In addition, we also believe millage is related to the accident rate. We will investigate the relationship between the millage and the number of accidents to see if there is a correlation between the two.
+
 ## Data Source 
+
 
 ## Data Description 
 A description of the data. Include in this description answers to these questions:
@@ -39,14 +44,20 @@ A description of the data. Include in this description answers to these question
 Note: if you get the data from a data repository such as Kaggle, you will need to dig into supplementary information to answer these questions.
 It is insufficient to simply report a link to a Kaggle repository.
 
+This data consist of car accidents in the United States, with detailed information about location, date, time, weather conditions, and the number of people involved. 
+
 ## Graph Description
 - Include a description of a graph which will show how the data informs the primary question of interest.
 - Describe what variables you will include and what type of graph you will create.
+
+TODO: Add a description of the graph you plan to create.
 
 ## Model Description
 Include a description of a possible model for the data and associated methods of inference or prediction.
 - We understand that you may not have a good grasp of these methods yet.
 - We understand the choice of methods may change between the proposal and the final project.
+
+We would like to use conifdence intervals and hypothesis testing to determine if there is a significant difference in the accident rate between different weather conditions. We will also make a regression model with the millage and the number of accidents to see if there is a correlation between the two.
 ```{r }
 
 ```
