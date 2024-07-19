@@ -27,11 +27,11 @@ The question or questions of interest that motivate the planned study.
 - Note that your project should aim to answer a limited number of questions (preferably one) using data from one or more source.
 - Do not try to answer too many questions. Better projects will have a focused set of one or two questions.
 
-The effect of different weather conditions on the car accident rate. We believe that weather conditions such as rain, snow, and fog may increase the likelihood of car accidents. We aim to investigate the relationship between weather conditions and car accidents and determine if certain weather conditions are associated with higher accident rates.
-
-In addition, we also believe millage is related to the accident rate. We will investigate the relationship between the millage and the number of accidents to see if there is a correlation between the two.
+Our main questions is related to conditions that are associated with car accidents. The effect of different weather conditions on the car accident rate. We believe that weather conditions such as rain, snow, and fog may increase the likelihood of car accidents. We aim to investigate the relationship between weather conditions and car accidents and determine if certain weather conditions are associated with higher accident rates. In addition, we also believe millage is related to the accident rate. We will investigate the relationship between the millage and the number of accidents to see if there is a correlation between the two.
 
 ## Data Source 
+
+The data source is https://www.nhtsa.gov/laws-regulations/standing-general-order-crash-reporting. National Highway Traffic Safety Administration is part of the U.S. Department of Transportation. The data is collected by the U.S. government and is publicly available. Our data 
 
 
 ## Data Description 
@@ -41,16 +41,16 @@ A description of the data. Include in this description answers to these question
 - What are key variables in the data set, what do they measure, and how are they related to your key questions?
 - If the data may be thought of as a sample from some larger population, what is that larger population?
 
-Note: if you get the data from a data repository such as Kaggle, you will need to dig into supplementary information to answer these questions.
-It is insufficient to simply report a link to a Kaggle repository.
 
-This data consist of car accidents in the United States, with detailed information about location, date, time, weather conditions, and the number of people involved. 
+The U.S. Department of Transportation collected the data. The data is collected Observations from reported crashes of ADS-equipped vehicles are presented in this section. The key variables in the data set 
+
+This data consist of car accidents in the United States, with detailed information about location, date, time, weather conditions, and millage. The weather and millage are related to my key question stated above directly. Since all our crashed data is from ads equipped vehicles, the population is all the cars in the United States. 
 
 ## Graph Description
 - Include a description of a graph which will show how the data informs the primary question of interest.
 - Describe what variables you will include and what type of graph you will create.
 
-TODO: Add a description of the graph you plan to create.
+We will create a bar graph that shows the number of accidents that occur in different weather conditions. The x-axis will be the weather conditions and the y-axis will be the number of accidents. This graph will show the relationship between weather conditions and the number of accidents. For the millage and the number of accidents, We will create a scatter plot with the millage on the x-axis and the number of accidents on the y-axis. We will then run a regression line to see if there is a correlation between the two.
 
 ## Model Description
 Include a description of a possible model for the data and associated methods of inference or prediction.
@@ -58,8 +58,3 @@ Include a description of a possible model for the data and associated methods of
 - We understand the choice of methods may change between the proposal and the final project.
 
 We would like to use conifdence intervals and hypothesis testing to determine if there is a significant difference in the accident rate between different weather conditions. We will also make a regression model with the millage and the number of accidents to see if there is a correlation between the two.
-```{r }
-
-```
-
-
