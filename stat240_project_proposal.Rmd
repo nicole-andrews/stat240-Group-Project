@@ -18,7 +18,7 @@ A brief description of how the group will communicate and work together.
 - When during the week can the group meet? Consider needs of all group members.
 - What platforms will the group use to communicate and share documents
 
-Our group will maintain regular communication primarily through text messages, ensuring quick updates, queries, and general discussions are easily accessible. This platform will facilitate ongoing dialogue and immediate responses among all members. Additionally, we will convene weekly via Zoom to conduct comprehensive progress meetings. These sessions will serve as opportunities to review our project's development, address any challenges, and strategize next steps collaboratively. For sharing and collaborating on documents, we will utilize Google Drive, Text Message and email. We will also share files through a shared folder via text message. 
+Our group will maintain regular communication primarily through text messages, ensuring quick updates, queries, and general discussions are easily accessible. This platform will facilitate ongoing dialogue and immediate responses among all members. Additionally, we will convene weekly via Zoom to conduct comprehensive progress meetings. These sessions will serve as opportunities to review our project's development, address any challenges, and strategize next steps collaboratively. For sharing and collaborating on documents, we will utilize Google Drive, Text Message and email. We will also share files through a shared folder via text message. We will also use Github to share code and documents.
 
 ## Question 
 The question or questions of interest that motivate the planned study.
@@ -42,9 +42,7 @@ A description of the data. Include in this description answers to these question
 - If the data may be thought of as a sample from some larger population, what is that larger population?
 
 
-The U.S. Department of Transportation collected the data. The data is collected Observations from reported crashes of ADS-equipped vehicles are presented in this section. The key variables in the data set 
-
-This data consist of car accidents in the United States, with detailed information about location, date, time, weather conditions, and millage. The weather and millage are related to my key question stated above directly. Since all our crashed data is from ads equipped vehicles, the population is all the cars in the United States. 
+The U.S. Department of Transportation collected the data. The data is collected Observations from reported crashes of ADS-equipped vehicles are presented in this section. The key variables in the data set are location, date, time, weather conditions, and millage. The weather and millage are related to my key question stated above directly. Since all our crashed data is from ads equipped vehicles, the population is all the cars in the United States. 
 
 ## Graph Description
 - Include a description of a graph which will show how the data informs the primary question of interest.
