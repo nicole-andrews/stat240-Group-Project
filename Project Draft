@@ -1,2 +1,33 @@
-Background:
+---
+title: "Stat Final Project Draft, Group 316:1"
+output: html_document
+date: "2024-07-25"
+---
+
+## Group Member Names 
+Nicole Andrews, 
+Lucky Hu, 
+Ahmad Hinnawi,
+Brooke Hrdlicka
+
+
+(background section)
+The data set pertains to crash reporting as mandated by the National Highway Traffic Safety Administration (NHTSA). Under the Standing General Order (SGO) for Crash Reporting, vehicle and equipment manufacturers are required to report crashes that involve advanced driver assistance systems (ADAS) and automated driving systems (ADS). The data is collected from manufacturers who are required to report any qualifying crashes within 24 hours of learning about it. Manufacturers collect data from various sources including complaints/claims, telematics, field reports, testing, law enforcement, media, and others.This data is then submitted to NHTSA through specified channels. Each crash report includes detailed information about the incident, typically encompassing data and time of crash, location, description of the vehicle and its ADAS/ADS capabilities, circumstances of the crash, and outcomes such as injuries or fatalities.
+	The primary variables in the crash data set include: crash date and time - when the crash occurred; location - geographic location of the crash; vehicle information - make, model, and ADAS/ADS capabilities; injuries/fatalities - the number of and severity of injuries or fatalities resulting from the crash; reporting entity - source that reported the crash; environmental conditions -  weather and road conditions at the time of the crash.
+	The data is sourced from the National Highway Traffic Safety Administration (NHTSA). The specific data set and additional information can be accessed through the NHTSA’s website regarding crash reporting: Standing General Order on Crash Reporting | NHTSA. 
+	Our primary research questions are focused on understanding the conditions that are associated with car crashes. We aim to investigate two key areas: weather conditions and mileage rates: do the weather conditions of snow, rain, or a clear day have a significant impact on the rate of car accidents?; mileage and accident rates: Is there a correlation between the mileage of vehicles and the number of car crashes? The data collected contains detailed information about each reported crash. In terms of weather conditions, the data includes variables that describe the weather at the time of the crash, such as rain, snow, or other adverse conditions. Additionally, by analyzing the geographic location and time of each crash, specific weather events such as storms or heavy snowfall could be correlated with the incidence of accidents. In terms of mileage, details about the vehicles involved, including the mileage, can help assess whether higher mileage vehicles are more prone to accidents.
+	In order to better comprehend the relationship between weather conditions, mileage, and car accidents, it is important to understand that weather can have various impacts on driving conditions. Rain can decrease visibility and create slippery road surfaces. Snow and ice can impair vehicle control, increasing the likelihood of accidents. Fog can reduce visibility, making it difficult for drivers to see important objects such as other vehicles and road signs (Becker). Mileage, specifically higher mileage, can impact vehicle safety. Higher mileage is typically correlated with increased deterioration of tires, brakes, and suspension systems, which may decrease safety (Lee & Guldmann).
+There are a number of unusual factors that may affect the interpretation of the results. Reporting lag, or some crashes not being promptly due to delays in data collection or submission. Not all variables may be fully reported, leading to gaps and incomplete data. Different manufacturers may have varying levels of data collection capabilities due to technology or other aspects, which can affect the quality of the reported data. Environmental factors such as weather conditions, road infrastructure, and traffic can influence crash outcomes; however, these external conditionals may not be uniformly reported in the data.
+	In the rest of the report, it is intended to analyze the data by performing statistical analyses to understand trends and patterns in the reported crashes in the context of weather conditions such as snow, rain, or clear days. Additionally, graphics will be generated to ensure that possible trends or patterns can be easily visualized. Broader interpretations will be made to interpret results in regards to weather conditions and its impact as potential contributing factor on crashes. Future directions and possible recommendations based on the findings will be explored.
+
+
+
+
+
+(These were my references for the background section)
+Becker, N., Rust, H.W. & Ulbrich, U. Weather impacts on various types of road crashes: a quantitative analysis using generalized additive models. Eur. Transp. Res. Rev. 14, 37 (2022). https://doi.org/10.1186/s12544-022-00561-2
+ 
+Lee, Dongkwan; Guldmann, Jean-Michael. November 2019. “Factors Contributing to the Relationship between Driving Mileage and Crash Frequency of Older Drivers”. Sustainability 11(23): 6643. DOI: 10.3390/su11236643
+
+
 
