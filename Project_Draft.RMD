@@ -62,7 +62,7 @@ We include graph for the weather conditions to be consistent with our proposal. 
 
 ### Description:
 
-In this section, we creat two bar graphs for each dataset. The first graph shows the number of accidents by weather conditions. The weather conditions are categorized into two groups: Clear and Other. The second graph shows the number of accidents by injury severity. The severity of injuries is categorized into five levels: No Injuries Reported, Minor, Moderate, Serious, and Fatality.
+In this section, we creat two bar graphs for each dataset. We break our dataset in to combined, only ADS vehicles, and only level2 ADS vehicles. The first graph shows the number of accidents by weather conditions. The weather conditions are categorized into two groups: Clear and Other. The second graph shows the number of accidents by injury severity. The severity of injuries is categorized into five levels: No Injuries Reported, Minor, Moderate, Serious, and Fatality.
 
 ```{r}
 
