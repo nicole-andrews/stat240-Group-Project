@@ -17,39 +17,52 @@ library(tidyverse)
 library(readr)
 library(dplyr)
 library(ggplot2)
-
 ```
 
 ## Introduction:
 
 Car accidents are among the major causes of global problems, causing death, injury, and economic loss in great numbers each year. These tragedies do not only affect the concerned victims and their families, but also pose a heavy load on the health system and the economy of countries. In this regard, understanding factors that contribute to such accidents is essential to the development of effective preventive strategies and improvement of measures toward road safety, with a view to reducing associated costs.
 
-Through our analysis, we will try to deduce the relationship between weather condition, vehicle mileage, and car accident rate. Precisely, we want to answer the following questions: Are bad weather conditions such as rain, snow, and fog correlated with high rates of accidents? Is there a relationship between vehicle mileage and having an accident?.
+Through our analysis, we will try to deduce the relationship between weather condition, and car injuries. Precisely, we want to answer the following questions: **Are ASD equipped cars less likely to cause severe injuries than Level 2 equipped cars?**
 
-We surmise that there are certain weather conditions under which the possibilities of a car accident increase; at the same time, we wish to establish an excellent correlation between mileage and vehicle accidents. In this study, by analyzing data from the National Highway Traffic Safety Administration, we hope to provide insights that could help in making policy decisions to upgrade road safety measures and bring down both the frequency and severity of car accidents considerably.
+In this study, by analyzing data from the National Highway Traffic Safety Administration [@NHTSA2023], we hope to provide insights that could help in making policy decisions to upgrade road safety measures and bring down both the frequency and severity of car accidents considerably.
 
 ## Background
 
-This dataset includes crash reporting, which is mandated by the National Highway Traffic Safety Administration. This general order on the crash reporting standing requires vehicle and equipment manufacturers to report crashes involving ADAS and ADS. Data is provided from manufacturers obligated to report any qualifying crashes within 24 hours of learning about them. Manufacturers gather information from a variety of sources, including complaints/claims, telematics, field reports, testing, law enforcement, media, or others. Subsequently, manufacturers upload these data through the appropriate channels to the NHTSA. Each crash report contains the detailed description of the accident, usually including the date and time of the crash, location, vehicle and ADAS/ADS description, circumstances of the crash, outcomes—e.g., injuries or fatalities.
+This dataset includes crash reporting, which is mandated by the National Highway Traffic Safety Administration. This general order on the crash reporting standing requires vehicle and equipment manufacturers to report crashes involving ADAS and ADS. Data is provided from manufacturers obligated to report any qualifying crashes within 24 hours of learning about them. Manufacturers gather information from a variety of sources, including complaints/claims, telematics, field reports, testing, law enforcement, media, or others. Subsequently, manufacturers upload these data through the appropriate channels to the NHTSA. Each crash report contains the detailed description of the accident, usually including the date and time of the crash, location,  circumstances of the crash-e.g. weather, outcomes—e.g., injuries or fatalities.
+
+### ADS vs Level 2
+
+Automated driving systems, still in development, encompass SAE Levels 3 through 5. In its mature state, a vehicle equipped with ADS aims to perform the entire dynamic driving task on a sustained basis within a defined operational design domain without driver involvement. While these vehicles are in development and are being tested on public roads in limited capacities, they are not available for consumer purchase at this time.
+
+Level 2 advanced driver assistance systems provide both speed and steering input when the driver assistance system is engaged but require the human driver to remain fully engaged in the driving task at all times.
+
+In short, ADS vehicles are more advanced than Level 2 vehicles, as they are designed to perform the entire driving task without human intervention. However, people are worried about the safety of these vehicles. Our study aims to investigate **whether ADS vehicles are safer than Level 2 vehicles in terms of causing severe injuries in car accidents.**
+
+
+##  Data: 
+
 
 The primary variables in the crash dataset include:
 
-Crash time and date: When the crash happened.
-Location: Geographical location of the crash.
-Information about the vehicle: make, model, and ADAS/ADS capabilities.
-Injuries/fatalities: Number and seriousness of injuries or fatalities resulting from the crash.
-Reporting Entity: Source that reported the crash.
-Environmental conditions: Weather and road condition at the time of the crash. This data was provided by the National Highway Traffic Safety Administration. Dataset used and more information can be found via the NHTSA's website on crash reporting: Standing General Order on Crash Reporting | NHTSA.
+- Crash time and date: When the crash happened.
+- Location: Geographical location of the crash.
+- Information about the vehicle: make, model, and ADAS/ADS capabilities.
+- Injuries/fatalities: Number and seriousness of injuries or fatalities resulting from the crash.
+- Reporting Entity: Source that reported the crash.
+- Environmental conditions: Weather and road condition at the time of the crash. 
 
-Our main study questions are those seeking to understand the conditions that accompany a car crash. We intend to research the reasons for accidents with regard to weather conditions and mileage rate. Does inclement weather, such as snow and rain, or even clear days really affect the number of car accidents? Is there a correlation between the rate of car crashes and miles traveled in cars? Data is collected with information on every crash that has ever been reported. The dataset contains variables that definite weather at the moment of the crash: rain, snow, and other bad conditions. Invez, from geographic location and accident time information, one would be in a position to relate accidents to a particular weather event, say, storms or heavy snowfall.
+This data was provided by the National Highway Traffic Safety Administration. Dataset used and more information can be found via the NHTSA's website on crash reporting [@NHTSA2023].
 
-Regarding the mileage, information on the vehicles involved, including mileage, can be useful in finding out whether high-mileage vehicles are more likely to have accidents.
+The datasets contained incident report data through June 17, 2024. Each row in the dataset represents a single crash incident. The size of the dataset is 3918 rows and 137 columns. The name of our dataset is 'combined_data.csv'. 
 
-One has to understand that weather may have different effects on driving conditions in order to better comprend how weather conditions interact with mileage and car accidents. As an example, rain might decrease the visibility and create slippery road surfaces.
+## Graph: 
 
-Snow and ice make a vehicle lose its control, hence increasing the risk of accidents. Fog causes low visibility, where drivers cannot clearly see various things on the road, such as other moving vehicles and road signs [@Becker2022]. The mileage, particularly high mileage, relates to vehicle safety. Higher mileage is normally linked to increased wear of tires, brakes, and suspension systems, probably reducing safety [@Lee2019](Lee & Guldmann). There could be various factors that might affect result interpretation and are somewhat unusual. The reporting lag can occur when some accidents are not immediately reported because the data gathering or conversely its submission is relatively slow. Not all of the variables are fully reported, creating gaps and incomplete data. Data collection by different manufacturers may vary given the technology or other aspects, thus affecting the quality of the data reported. The environmental factors that generally play a big role in crash outcomes—things like weather conditions, road infrastructure, and on-road traffic—are influential but highly unlikely to be captured uniformly by the data. In the rest of the report, we will see an analysis of data through statistical analyses that are to be run with an attempt to understand trends and patterns in the reported crashes in regard to weather conditions like snow, rain, or clear days. Graphics will also be generated to visualize possible trends or patterns. Broader interpretations have been made to interpret results regarding weather conditions and their impact as potential contributing factors in crashes. The review will also trace future directions and possible recommendations that the findings may lead to.
+We include graph for the weather conditions to be consistent with our proposal. But the primary question we focus on is after the feedback from the professor is to compare the injury severity between ADS and Level 2 vehicles.
 
-## Analysis 
+### Description:
+
+In this section, we creat two bar graphs for each dataset. The first graph shows the number of accidents by weather conditions. The weather conditions are categorized into two groups: Clear and Other. The second graph shows the number of accidents by injury severity. The severity of injuries is categorized into five levels: No Injuries Reported, Minor, Moderate, Serious, and Fatality.
 
 ```{r}
 
@@ -178,6 +191,7 @@ level2_injury <- get_injury_count(level2_data)
 plot_injury_severity(level2_injury, "Number of Accidents by Injury Severity for Level 2 Vehicles")
 ```
 
+
 ```{r}
 print(ADS_weather)
 print(ADS_injury)
@@ -185,11 +199,9 @@ print(level2_weather)
 print(level2_injury)
 ```
 
-We categorize the weather conditions into two categories: Clear and Other. The "Other" category includes all other weather conditions such as rain, snow, and fog. The bar graph shows the number of accidents that occurred in each weather condition category. 
+## Graph for Our analysis:
 
-The second graph shows the number of accidents by injury severity. The severity of injuries is categorized into five levels: No Injuries Reported, Minor, Moderate, Serious, and Fatality. The bar graph shows the number of accidents that occurred in each injury severity category.
-
-Since we only covered the technique to determine  a difference between exactly two groups. We summarize the No Injuries, Minor, into one group and the Moderate, Serious, and Fatality into another group.  
+Since the Professor suggested we only covered the technique to determine a difference between exactly two groups. We summarize the No Injuries, Minor, into one group and the Moderate, Serious, and Fatality into another group.  
 
 ```{r}
 ADS_group_injur <- get_group_injury_count(crash_data)
@@ -199,12 +211,17 @@ level2_group_injur <- get_group_injury_count(level2_data)
 plot_grouped_injury_severity(level2_group_injur, "Number of Accidents by Injury Severity for level2 Vehicles")
 ```
 
+## Analysis:
+
+Here is the summary of the number of accidents by injury severity for ADS and Level2 vehicles. The severity of injuries is categorized into two groups: No Injuries/Minor and Moderate/Serious/Fatality. The bar graph shows the number of accidents that occurred in each injury severity group.
+
 ```{r}
 print(ADS_group_injur)
 print(level2_group_injur)
 ```
 
-### Question:
+
+###  Question:
 
 > Do car crash causes severe injuries(Moderate/Serious/Fatality) more often with ADS equipped than ADS Level2 equipped? 
 
@@ -281,7 +298,7 @@ print(paste("The p-value is", pvalue_sim))
 
 > The p-value is 0. Since the p-value is less than 0.05, we reject the null hypothesis. There is enough evidence to suggest that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is not equal to the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped.
 
-### Interpretation:
+## Interpretation:
 
 Following the Same Logic Explaination as in the lecture, we conclude there is enough evidence to suggest that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is less than the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped.
 
@@ -322,14 +339,8 @@ pvalue_z
 ```
 The simulation and the theory can be interpreted in the same way. 
 
-## Conclusion:
+#  Conclusion:
 
 There is very strong evidence that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is less than the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped. (p = 2.776592e-56, z-test for difference in proportions)
 
-## References: 
-
-<!-- (These were my references for the background section)
-Becker, N., Rust, H.W. & Ulbrich, U. Weather impacts on various types of road crashes: a quantitative analysis using generalized additive models. Eur. Transp. Res. Rev. 14, 37 (2022). https://doi.org/10.1186/s12544-022-00561-2
- 
-Lee, Dongkwan; Guldmann, Jean-Michael. November 2019. “Factors Contributing to the Relationship between Driving Mileage and Crash Frequency of Older Drivers”. Sustainability 11(23): 6643. DOI: 10.3390/su11236643 -->
-
+# References: 
