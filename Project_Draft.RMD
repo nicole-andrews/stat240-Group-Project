@@ -1,42 +1,238 @@
 ---
 title: "Stat Final Project Draft, Group 316:1"
 output: html_document
-date: "2024-07-25"
+date: "2024-07-26"
 bibliography: references.bib
 ---
 
-## Group Member Names 
+## Group Member Names: 
 
-Nicole Andrews, 
-Lucky Hu, 
-Ahmad Hinnawi,
+Nicole Andrews\
+Lucky Hu\
+Ahmad Hinnawi\
 Brooke Hrdlicka
 
-## Introduction
-Car accidents are a significant concern worldwide, leading to numerous fatalities, injuries, and economic losses annually. Understanding the factors that contribute to these accidents is crucial for developing effective prevention strategies. Our analysis seeks to explore the relationship between weather conditions, vehicle mileage, and car accident rates. Specifically, we aim to determine whether adverse weather conditions such as rain, snow, and fog correlate with higher accident rates and whether the mileage of a vehicle influences the likelihood of accidents. 
+```{r}
+library(tidyverse)
+library(readr)
+library(dplyr)
+library(ggplot2)
 
-We believe that certain weather conditions significantly increase the probability of car accidents, and there is a notable correlation between vehicle mileage and accident rates. By analyzing data from the National Highway Traffic Safety Administration (NHTSA), we aim to provide insights that could inform policy decisions and enhance road safety measures.
+```
 
+## Introduction:
 
+Car accidents are among the major causes of global problems, causing death, injury, and economic loss in great numbers each year. These tragedies do not only affect the concerned victims and their families, but also pose a heavy load on the health system and the economy of countries. In this regard, understanding factors that contribute to such accidents is essential to the development of effective preventive strategies and improvement of measures toward road safety, with a view to reducing associated costs.
+
+Through our analysis, we will try to deduce the relationship between weather condition, vehicle mileage, and car accident rate. Precisely, we want to answer the following questions: Are bad weather conditions such as rain, snow, and fog correlated with high rates of accidents? Is there a relationship between vehicle mileage and having an accident?.
+
+We surmise that there are certain weather conditions under which the possibilities of a car accident increase; at the same time, we wish to establish an excellent correlation between mileage and vehicle accidents. In this study, by analyzing data from the National Highway Traffic Safety Administration, we hope to provide insights that could help in making policy decisions to upgrade road safety measures and bring down both the frequency and severity of car accidents considerably.
 
 ## Background
 
-The data set pertains to crash reporting as mandated by the National Highway Traffic Safety Administration (NHTSA). Under the Standing General Order (SGO) for Crash Reporting, vehicle and equipment manufacturers are required to report crashes that involve advanced driver assistance systems (ADAS) and automated driving systems (ADS). The data is collected from manufacturers who are required to report any qualifying crashes within 24 hours of learning about it. Manufacturers collect data from various sources including complaints/claims, telematics, field reports, testing, law enforcement, media, and others.This data is then submitted to NHTSA through specified channels. Each crash report includes detailed information about the incident, typically encompassing data and time of crash, location, description of the vehicle and its ADAS/ADS capabilities, circumstances of the crash, and outcomes such as injuries or fatalities.
-	The primary variables in the crash data set include: crash date and time - when the crash occurred; location - geographic location of the crash; vehicle information - make, model, and ADAS/ADS capabilities; injuries/fatalities - the number of and severity of injuries or fatalities resulting from the crash; reporting entity - source that reported the crash; environmental conditions -  weather and road conditions at the time of the crash.
-	The data is sourced from the National Highway Traffic Safety Administration (NHTSA). The specific data set and additional information can be accessed through the NHTSA’s website regarding crash reporting: Standing General Order on Crash Reporting | NHTSA. 
-	Our primary research questions are focused on understanding the conditions that are associated with car crashes. We aim to investigate two key areas: weather conditions and mileage rates: do the weather conditions of snow, rain, or a clear day have a significant impact on the rate of car accidents?; mileage and accident rates: Is there a correlation between the mileage of vehicles and the number of car crashes? The data collected contains detailed information about each reported crash. In terms of weather conditions, the data includes variables that describe the weather at the time of the crash, such as rain, snow, or other adverse conditions. Additionally, by analyzing the geographic location and time of each crash, specific weather events such as storms or heavy snowfall could be correlated with the incidence of accidents. In terms of mileage, details about the vehicles involved, including the mileage, can help assess whether higher mileage vehicles are more prone to accidents.
-	In order to better comprehend the relationship between weather conditions, mileage, and car accidents, it is important to understand that weather can have various impacts on driving conditions. Rain can decrease visibility and create slippery road surfaces. Snow and ice can impair vehicle control, increasing the likelihood of accidents. Fog can reduce visibility, making it difficult for drivers to see important objects such as other vehicles and road signs [@Becker2022] (Becker). Mileage, specifically higher mileage, can impact vehicle safety. Higher mileage is typically correlated with increased deterioration of tires, brakes, and suspension systems, which may decrease safety [@Lee2019](Lee & Guldmann).
-There are a number of unusual factors that may affect the interpretation of the results. Reporting lag, or some crashes not being promptly due to delays in data collection or submission. Not all variables may be fully reported, leading to gaps and incomplete data. Different manufacturers may have varying levels of data collection capabilities due to technology or other aspects, which can affect the quality of the reported data. Environmental factors such as weather conditions, road infrastructure, and traffic can influence crash outcomes; however, these external conditionals may not be uniformly reported in the data.
-	In the rest of the report, it is intended to analyze the data by performing statistical analyses to understand trends and patterns in the reported crashes in the context of weather conditions such as snow, rain, or clear days. Additionally, graphics will be generated to ensure that possible trends or patterns can be easily visualized. Broader interpretations will be made to interpret results in regards to weather conditions and its impact as potential contributing factor on crashes. Future directions and possible recommendations based on the findings will be explored.
+This dataset includes crash reporting, which is mandated by the National Highway Traffic Safety Administration. This general order on the crash reporting standing requires vehicle and equipment manufacturers to report crashes involving ADAS and ADS. Data is provided from manufacturers obligated to report any qualifying crashes within 24 hours of learning about them. Manufacturers gather information from a variety of sources, including complaints/claims, telematics, field reports, testing, law enforcement, media, or others. Subsequently, manufacturers upload these data through the appropriate channels to the NHTSA. Each crash report contains the detailed description of the accident, usually including the date and time of the crash, location, vehicle and ADAS/ADS description, circumstances of the crash, outcomes—e.g., injuries or fatalities.
+
+The primary variables in the crash dataset include:
+
+Crash time and date: When the crash happened.
+Location: Geographical location of the crash.
+Information about the vehicle: make, model, and ADAS/ADS capabilities.
+Injuries/fatalities: Number and seriousness of injuries or fatalities resulting from the crash.
+Reporting Entity: Source that reported the crash.
+Environmental conditions: Weather and road condition at the time of the crash. This data was provided by the National Highway Traffic Safety Administration. Dataset used and more information can be found via the NHTSA's website on crash reporting: Standing General Order on Crash Reporting | NHTSA.
+
+Our main study questions are those seeking to understand the conditions that accompany a car crash. We intend to research the reasons for accidents with regard to weather conditions and mileage rate. Does inclement weather, such as snow and rain, or even clear days really affect the number of car accidents? Is there a correlation between the rate of car crashes and miles traveled in cars? Data is collected with information on every crash that has ever been reported. The dataset contains variables that definite weather at the moment of the crash: rain, snow, and other bad conditions. Invez, from geographic location and accident time information, one would be in a position to relate accidents to a particular weather event, say, storms or heavy snowfall.
+
+Regarding the mileage, information on the vehicles involved, including mileage, can be useful in finding out whether high-mileage vehicles are more likely to have accidents.
+
+One has to understand that weather may have different effects on driving conditions in order to better comprend how weather conditions interact with mileage and car accidents. As an example, rain might decrease the visibility and create slippery road surfaces.
+
+Snow and ice make a vehicle lose its control, hence increasing the risk of accidents. Fog causes low visibility, where drivers cannot clearly see various things on the road, such as other moving vehicles and road signs [@Becker2022]. The mileage, particularly high mileage, relates to vehicle safety. Higher mileage is normally linked to increased wear of tires, brakes, and suspension systems, probably reducing safety [@Lee2019](Lee & Guldmann). There could be various factors that might affect result interpretation and are somewhat unusual. The reporting lag can occur when some accidents are not immediately reported because the data gathering or conversely its submission is relatively slow. Not all of the variables are fully reported, creating gaps and incomplete data. Data collection by different manufacturers may vary given the technology or other aspects, thus affecting the quality of the data reported. The environmental factors that generally play a big role in crash outcomes—things like weather conditions, road infrastructure, and on-road traffic—are influential but highly unlikely to be captured uniformly by the data. In the rest of the report, we will see an analysis of data through statistical analyses that are to be run with an attempt to understand trends and patterns in the reported crashes in regard to weather conditions like snow, rain, or clear days. Graphics will also be generated to visualize possible trends or patterns. Broader interpretations have been made to interpret results regarding weather conditions and their impact as potential contributing factors in crashes. The review will also trace future directions and possible recommendations that the findings may lead to.
+
+## Analysis 
+
+```{r}
+
+getwd()
+setwd("/Users/lucky/Documents/240/stat240-Group-Project")
+# Load the data
+crash_data <- read.csv("/Users/lucky/Documents/240/stat240-Group-Project/crash_data.csv")
+colunm_name <- colnames(crash_data)
+# Weather - Clear	Weather - Snow	Weather - Cloudy	Weather - Fog/Smoke	Weather - Rain	Weather - Severe Wind	Weather - Unknown	Weather - Other	Weather - Other Text Highest, Injury Severity Alleged
+level_data <- read.csv("/Users/lucky/Documents/240/stat240-Group-Project/level2.csv")
+
+# Drop all the columns of the data set other than 1, 12, 65, 72-81, 83
+
+crash_data <- crash_data[, c(1, 12,  72:81, 83)]
+# Save it to a new csv file
+write.csv(crash_data, file = "crash_data2.csv")
+level2_data <- level_data[, c(1, 12,  72:81, 83)]
+write.csv(level2_data, file = "level2_data2.csv")
 
 
+# Create a new column for the dataset called level with crash_data has value 5 and the level2_data has value 2
+crash_data$level <- 5
+level2_data$level <- 2
 
-## References
+```
+
+```{r}
+
+get_weather_count <- function(data){
+data_melt <- data %>%
+    pivot_longer(cols = starts_with("Weather"), names_to = "Weather_Condition", values_to = "Presence")
+  
+  weather_data <- data_melt %>% filter(Presence == "Y")
+  
+  weather_data$Weather_Condition <- ifelse(weather_data$Weather_Condition == "Weather...Clear", "Clear", "Other")
+  
+  weather_counts <- weather_data %>%
+    group_by(Weather_Condition) %>%
+    summarise(Count = n())
+  return(weather_counts)
+}
+
+plot_weather <- function(weather_counts, name) {
+  
+  ggplot(weather_counts, aes(x = Weather_Condition, y = Count)) +
+    geom_bar(stat = "identity", fill = "blue", width = 0.5, alpha = 0.5) +
+    labs(x = "Weather Conditions", y = "Number of Accidents", title = name) +
+    theme_minimal(base_size = 15) +
+    theme(
+      axis.text.x = element_text(angle = 65, hjust = 1),
+      plot.title = element_text(size = 14, face = "bold"),
+      legend.title = element_text(size = 10),
+      legend.text = element_text(size = 8)
+    )
+}
+
+get_injury_count <- function(data){
+	 injury_counts <- data %>%
+    filter(Highest.Injury.Severity.Alleged != "Unknown") %>%
+    group_by(Highest.Injury.Severity.Alleged) %>%
+    summarise(Count = n())
+  return(injury_counts)
+}
+
+plot_injury_severity <- function(injury_counts, name) { 
+  # Define the order and colors for injury severity
+  injury_order <- c("No Injuries Reported", "Minor", "Moderate", "Serious", "Fatality")
+  injury_colors <- c("No Injuries Reported" = "green", "Minor" = "yellow", "Moderate" = "orange", "Serious" = "red", "Fatality" = "black")
+  
+  ggplot(injury_counts, aes(x = factor(Highest.Injury.Severity.Alleged, levels = injury_order), y = Count, fill = Highest.Injury.Severity.Alleged)) +
+    geom_bar(stat = "identity", width = 0.5, alpha = 0.7) +
+    scale_fill_manual(values = injury_colors) +
+    labs(x = "Injury Severity", y = "Number of Accidents", title = name) +
+    theme_minimal(base_size = 15) +
+    theme(
+      axis.text.x = element_text(angle = 65, hjust = 1),
+      plot.title = element_text(size = 14, face = "bold"),
+      legend.title = element_text(size = 10),
+      legend.text = element_text(size = 8)
+    )
+}
+
+get_group_injury_count <- function(data){
+injury_counts <- data %>%
+    filter(Highest.Injury.Severity.Alleged != "Unknown") %>%
+    mutate(Injury_Group = ifelse(Highest.Injury.Severity.Alleged %in% c("No Injuries Reported", "Minor"), 
+                                 "No Injuries/Minor", "Moderate/Serious/Fatality")) %>%
+    group_by(Injury_Group) %>%
+    summarise(Count = n())
+	return(injury_counts)
+}
+plot_grouped_injury_severity <- function(injury_counts, name) {
+
+  ggplot(injury_counts, aes(x = Injury_Group, y = Count, fill = Injury_Group)) +
+    geom_bar(stat = "identity", width = 0.5, alpha = 0.7) +
+    scale_fill_manual(values = c("No Injuries/Minor" = "green", "Moderate/Serious/Fatality" = "red")) +
+    labs(x = "Injury Severity Group", y = "Number of Accidents", title = name) +
+    theme_minimal(base_size = 15) +
+    theme(
+      axis.text.x = element_text(angle = 45, hjust = 1),
+      plot.title = element_text(size = 14, face = "bold"),
+      legend.title = element_text(size = 10),
+      legend.text = element_text(size = 8)
+    )
+  
+}
+combined_data <- rbind(crash_data, level2_data)
+combined_weather <- get_weather_count(combined_data)
+plot_weather(combined_weather, "Number of Accidents by Weather Conditions for Combined Data")
+combined_injury <- get_injury_count(combined_data)
+plot_injury_severity(combined_injury,  "Number of Accidents by Injury Severity for Combined Data")
+ 
+# Example usage with the data
+ADS_weather <- get_weather_count(crash_data)
+
+plot_weather(ADS_weather, "Number of Accidents by Weather Conditions for ADS Vehicles")
+
+ADS_injury <- get_injury_count(crash_data)
+
+plot_injury_severity(ADS_injury, "Number of Accidents by Injury Severity for ADS Vehicles")
+
+level2_weather <- get_weather_count(level2_data)
+plot_weather(level2_weather, "Number of Accidents by Weather Conditions for Level 2 Vehicles")
+
+level2_injury <- get_injury_count(level2_data)
+plot_injury_severity(level2_injury, "Number of Accidents by Injury Severity for Level 2 Vehicles")
+```
+
+```{r}
+print(ADS_weather)
+print(ADS_injury)
+print(level2_weather)
+print(level2_injury)
+```
+
+We categorize the weather conditions into two categories: Clear and Other. The "Other" category includes all other weather conditions such as rain, snow, and fog. The bar graph shows the number of accidents that occurred in each weather condition category. 
+
+The second graph shows the number of accidents by injury severity. The severity of injuries is categorized into five levels: No Injuries Reported, Minor, Moderate, Serious, and Fatality. The bar graph shows the number of accidents that occurred in each injury severity category.
+
+Since we only covered the technique to determine  a difference between exactly two groups. We summarize the No Injuries, Minor, into one group and the Moderate, Serious, and Fatality into another group.  
+
+```{r}
+ADS_group_injur <- get_group_injury_count(crash_data)
+plot_grouped_injury_severity(ADS_group_injur, "Number of Accidents by Injury Severity for ADS Vehicles")
+
+level2_group_injur <- get_group_injury_count(level2_data)
+plot_grouped_injury_severity(level2_group_injur, "Number of Accidents by Injury Severity for level2 Vehicles")
+```
+
+```{r}
+print(ADS_group_injur)
+print(level2_group_injur)
+```
+
+### Question:
+
+> Do car crash causes severe injuries(Moderate/Serious/Fatality) more often with ADS equipped than ADS Level2 equipped? 
+
+### Statistical Model:
+
+- $p_1$ is the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped.
+- $p_2$ is the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped.
+
+
+Let $\hat{p}_1$ and $\hat{p}_2$ be the emperical probabilities of a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped and ADS Level2 equipped, respectively.
+
+$$X_1 | ~ p_1 \sim \text{Binomial}(1131, p_1)$$
+$$X_2 | ~ p_2 \sim \text{Binomial}(533, p_2)$$
+
+Where $X_1$ and $X_2$ are the number of car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped and ADS Level2 equipped, respectively.
+
+### Hypothesis:
+
+ $$H_0: p_1 = p_2$$
+  $$H_a: p_1 \neq p_2$$
+
+- The null hypothesis is that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is equal to the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped.
+- The alternative hypothesis is that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is not equal to the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped.
+
+## References: 
 
 <!-- (These were my references for the background section)
 Becker, N., Rust, H.W. & Ulbrich, U. Weather impacts on various types of road crashes: a quantitative analysis using generalized additive models. Eur. Transp. Res. Rev. 14, 37 (2022). https://doi.org/10.1186/s12544-022-00561-2
  
 Lee, Dongkwan; Guldmann, Jean-Michael. November 2019. “Factors Contributing to the Relationship between Driving Mileage and Crash Frequency of Older Drivers”. Sustainability 11(23): 6643. DOI: 10.3390/su11236643 -->
-
-
 
