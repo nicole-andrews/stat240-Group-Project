@@ -1,0 +1,56 @@
+---
+title: "Stat Final Project Draft, Group 316:1"
+output: html_document
+date: "2024-07-25"
+bibliography: references.bib
+---
+
+## Group Member Names 
+
+Nicole Andrews, 
+Lucky Hu, 
+Ahmad Hinnawi,
+Brooke Hrdlicka
+
+## Introduction
+Car accidents are among the major causes of global problems, causing death, injury, and economic loss in great numbers each year. These tragedies do not only affect the concerned victims and their families, but also pose a heavy load on the health system and the economy of countries. In this regard, understanding factors that contribute to such accidents is essential to the development of effective preventive strategies and improvement of measures toward road safety, with a view to reducing associated costs.
+
+Through our analysis, we will try to deduce the relationship between weather condition, vehicle mileage, and car accident rate. Precisely, we want to answer the following questions: Are bad weather conditions such as rain, snow, and fog correlated with high rates of accidents? Is there a relationship between vehicle mileage and having an accident?.
+
+We surmise that there are certain weather conditions under which the possibilities of a car accident increase; at the same time, we wish to establish an excellent correlation between mileage and vehicle accidents. In this study, by analyzing data from the National Highway Traffic Safety Administration, we hope to provide insights that could help in making policy decisions to upgrade road safety measures and bring down both the frequency and severity of car accidents considerably.
+
+
+## Background
+
+This dataset includes crash reporting, which is mandated by the National Highway Traffic Safety Administration. This general order on the crash reporting standing requires vehicle and equipment manufacturers to report crashes involving ADAS and ADS. Data is provided from manufacturers obligated to report any qualifying crashes within 24 hours of learning about them. Manufacturers gather information from a variety of sources, including complaints/claims, telematics, field reports, testing, law enforcement, media, or others. Subsequently, manufacturers upload these data through the appropriate channels to the NHTSA. Each crash report contains the detailed description of the accident, usually including the date and time of the crash, location, vehicle and ADAS/ADS description, circumstances of the crash, outcomes—e.g., injuries or fatalities.
+
+The primary variables in the crash dataset include:
+
+Crash time and date: When the crash happened.
+Location: Geographical location of the crash.
+Information about the vehicle: make, model, and ADAS/ADS capabilities.
+Injuries/fatalities: Number and seriousness of injuries or fatalities resulting from the crash.
+Reporting Entity: Source that reported the crash.
+Environmental conditions: Weather and road condition at the time of the crash. This data was provided by the National Highway Traffic Safety Administration. Dataset used and more information can be found via the NHTSA's website on crash reporting: Standing General Order on Crash Reporting | NHTSA.
+
+Our main study questions are those seeking to understand the conditions that accompany a car crash. We intend to research the reasons for accidents with regard to weather conditions and mileage rate. Does inclement weather, such as snow and rain, or even clear days really affect the number of car accidents? Is there a correlation between the rate of car crashes and miles traveled in cars? Data is collected with information on every crash that has ever been reported. The dataset contains variables that definite weather at the moment of the crash: rain, snow, and other bad conditions. Invez, from geographic location and accident time information, one would be in a position to relate accidents to a particular weather event, say, storms or heavy snowfall.
+
+Regarding the mileage, information on the vehicles involved, including mileage, can be useful in finding out whether high-mileage vehicles are more likely to have accidents.
+
+One has to understand that weather may have different effects on driving conditions in order to better comprend how weather conditions interact with mileage and car accidents. As an example, rain might decrease the visibility and create slippery road surfaces.
+
+Snow and ice make a vehicle lose its control, hence increasing the risk of accidents. Fog causes low visibility, where drivers cannot clearly see various things on the road, such as other moving vehicles and road signs [@Becker2022] ​. The mileage, particularly high mileage, relates to vehicle safety. Higher mileage is normally linked to increased wear of tires, brakes, and suspension systems, probably reducing safety [@Lee2019](Lee & Guldmann). There could be various factors that might affect result interpretation and are somewhat unusual. The reporting lag can occur when some accidents are not immediately reported because the data gathering or conversely its submission is relatively slow. Not all of the variables are fully reported, creating gaps and incomplete data. Data collection by different manufacturers may vary given the technology or other aspects, thus affecting the quality of the data reported. The environmental factors that generally play a big role in crash outcomes—things like weather conditions, road infrastructure, and on-road traffic—are influential but highly unlikely to be captured uniformly by the data. In the rest of the report, we will see an analysis of data through statistical analyses that are to be run with an attempt to understand trends and patterns in the reported crashes in regard to weather conditions like snow, rain, or clear days. Graphics will also be generated to visualize possible trends or patterns. Broader interpretations have been made to interpret results regarding weather conditions and their impact as potential contributing factors in crashes. The review will also trace future directions and possible recommendations that the findings may lead to.
+
+
+
+
+
+
+
+## References
+
+<!-- (These were my references for the background section)
+Becker, N., Rust, H.W. & Ulbrich, U. Weather impacts on various types of road crashes: a quantitative analysis using generalized additive models. Eur. Transp. Res. Rev. 14, 37 (2022). https://doi.org/10.1186/s12544-022-00561-2
+ 
+Lee, Dongkwan; Guldmann, Jean-Michael. November 2019. “Factors Contributing to the Relationship between Driving Mileage and Crash Frequency of Older Drivers”. Sustainability 11(23): 6643. DOI: 10.3390/su11236643 -->
+
