@@ -12,6 +12,12 @@ Lucky Hu,
 Ahmad Hinnawi,
 Brooke Hrdlicka
 
+## Introduction
+Car accidents are a significant concern worldwide, leading to numerous fatalities, injuries, and economic losses annually. Understanding the factors that contribute to these accidents is crucial for developing effective prevention strategies. Our analysis seeks to explore the relationship between weather conditions, vehicle mileage, and car accident rates. Specifically, we aim to determine whether adverse weather conditions such as rain, snow, and fog correlate with higher accident rates and whether the mileage of a vehicle influences the likelihood of accidents. 
+
+We believe that certain weather conditions significantly increase the probability of car accidents, and there is a notable correlation between vehicle mileage and accident rates. By analyzing data from the National Highway Traffic Safety Administration (NHTSA), we aim to provide insights that could inform policy decisions and enhance road safety measures.
+
+
 
 ## Background
 
