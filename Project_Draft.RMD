@@ -229,6 +229,103 @@ Where $X_1$ and $X_2$ are the number of car crash causes severe injuries(Moderat
 - The null hypothesis is that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is equal to the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped.
 - The alternative hypothesis is that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is not equal to the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped.
 
+### Test statistic: We choose to use the difference of the point estimates as the test statistic.
+
+```{r}
+test_stat = 52/1131 - 177/533
+test_stat
+```
+
+> In the experiment data, we observe the ADS equipped car crash causes severe injuries(Moderate/Serious/Fatality) 28.6% less often than the ADS Level2 equipped car crash.
+
+### Null Sampling Distribution:
+
+- If the null hypothesis is true, then $p_1 = p_2$ the distribution of the test statistic is whatever it is when $X_1$ and $X_2$ are drawn from binomial distribution with the same success probability p. 
+- To estimate $p$ from the data, we combine both samples.
+
+$$\bar{p} = \frac{X_1 + X_2}{1131 + 533} = \frac{52+177}{1131+533} = 0.1376$$
+
+### Calculate the p-value:
+
+```{r}
+p0 = (52+177)/(1131+533)
+test_stat = 52/1131 - 177/533
+n1 = 1131
+n2 = 533
+B = 2000000
+
+set.seed(20240726)
+
+sim = tibble(
+  x1 = rbinom(B, n1, p0),
+  n1 = n1, 
+  x2 = rbinom(B, n2, p0),
+  n2 = n2, 
+  phat1 = x1/n1,
+  phat2 = x2/n2,
+  diff = phat1 - phat2)
+
+sim %>% print(n=15, width = Inf)
+```
+
+```{r}
+pvalue_sim = sim %>% 
+  summarize(
+    pvalue = mean( abs(diff) > abs(test_stat) | near(abs(diff), abs(test_stat))) ) %>% 
+  pull(pvalue)
+print(test_stat)
+summary(sim$diff)
+pvalue_sim
+print(paste("The p-value is", pvalue_sim))
+```
+
+> The p-value is 0. Since the p-value is less than 0.05, we reject the null hypothesis. There is enough evidence to suggest that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is not equal to the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped.
+
+### Interpretation:
+
+Following the Same Logic Explaination as in the lecture, we conclude there is enough evidence to suggest that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is less than the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped.
+
+
+### Simulation Check:
+
+```{r}
+sim %>% 
+  summarize(mean = mean(diff),
+            sd = sd(diff),
+            pvalue = mean(abs(diff) >= abs(test_stat)))
+```
+
+```{r}
+ggplot(sim, aes(x=diff)) +
+  geom_density(fill = "papayawhip") +
+  geom_vline(xintercept = test_stat, color = "red", linetype = "dashed") +
+  geom_hline(yintercept = 0) +
+  xlab("Difference in Sample Proportions") +
+  theme_minimal()
+```
+
+- We see that the sampling distribution is well-approximated by a normal curve.
+- The test statistic is far out in the tail, so we expect a small p-value.
+
+### Normal Approximation:
+```{r}
+se = sqrt( p0*(1-p0)/n1 + p0*(1-p0)/n2 )
+z = test_stat / se
+z
+```
+
+```{r}
+## p-value is twice the area to the right of z under the standard normal curve.
+## this is also twice the area to the left of -|z| due to symmetry
+pvalue_z = 2*pnorm(-abs(z))
+pvalue_z
+```
+The simulation and the theory can be interpreted in the same way. 
+
+## Conclusion:
+
+There is very strong evidence that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is less than the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped. (p = 2.776592e-56, z-test for difference in proportions)
+
 ## References: 
 
 <!-- (These were my references for the background section)
