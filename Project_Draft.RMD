@@ -1,5 +1,5 @@
 ---
-title: "Stat Final Project Draft, Group 316:1"
+title: "Stat Final Project Draft, Group 316:1 - Injury Severity Comparison Between ADS Cars and Level 2 Cars Based on Weather Conditions"
 output: html_document
 date: "2024-07-26"
 bibliography: references.bib
@@ -25,7 +25,7 @@ Car accidents are among the major causes of global problems, causing death, inju
 
 Through our analysis, we will try to deduce the relationship between weather condition, and car injuries. Precisely, we want to answer the following questions: **Are ASD equipped cars less likely to cause severe injuries than Level 2 equipped cars?**
 
-In this study, by analyzing data from the National Highway Traffic Safety Administration [@NHTSA2023], we hope to provide insights that could help in making policy decisions to upgrade road safety measures and bring down both the frequency and severity of car accidents considerably.
+In this study, by analyzing data from the National Highway Traffic Safety Administration [@NHTSA2023], we found that ADS cars are less likely to cause severe injuries than level 2 cars. This information can be used in making policy decisions to upgrade road safety measures and bring down both the frequency and severity of car accidents considerably.
 
 ## Background
 
@@ -54,7 +54,7 @@ The primary variables in the crash dataset include:
 
 This data was provided by the National Highway Traffic Safety Administration. Dataset used and more information can be found via the NHTSA's website on crash reporting [@NHTSA2023].
 
-The datasets contained incident report data through June 17, 2024. Each row in the dataset represents a single crash incident. The size of the dataset is 3918 rows and 137 columns. The name of our dataset is 'combined_data.csv'. 
+The datasets contained incident report data from January 1, 2023 through June 17, 2024. Each row in the dataset represents a single crash incident. The size of the dataset is 3918 rows and 137 columns. The name of our dataset is 'combined_data.csv'. 
 
 ## Graph: 
 
@@ -201,7 +201,7 @@ print(level2_injury)
 
 ## Graph for Our analysis:
 
-Since the Professor suggested we only covered the technique to determine a difference between exactly two groups. We summarize the No Injuries and Minor, into one group and the Moderate, Serious, and Fatality into another group.  
+We summarized the No Injuries and Minor, into one group and the Moderate, Serious, and Fatality into another group.  This was aimed to determine if there are significant differences between mild injuries compared to more severe injuries.
 
 ```{r}
 ADS_group_injur <- get_group_injury_count(crash_data)
@@ -300,7 +300,7 @@ print(paste("The p-value is", pvalue_sim))
 
 ## Interpretation:
 
-Following the Same Logic Explaination as in the lecture, we conclude there is enough evidence to suggest that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is less than the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped.
+We conclude there is enough evidence to suggest that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is less than the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped.
 
 
 ### Simulation Check:
@@ -339,8 +339,8 @@ pvalue_z
 ```
 The simulation and the theory can be interpreted in the same way. 
 
-#  Conclusion:
+#  Discussion/ Conclusion:
 
-There is very strong evidence that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is less than the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS Level2 equipped. (p = 2.776592e-56, z-test for difference in proportions)
+There is very strong evidence that the probability that a car crash causes severe injuries(Moderate/Serious/Fatality) with ADS equipped is significantly less than the probability that a car crash causes severe injuries with ADS Level2 equipped. (p = 2.776592e-56, z-test for difference in proportions)
 
 # References: 
